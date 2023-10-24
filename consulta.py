@@ -8,6 +8,15 @@ def listar(database):
     cursor.execute("""SELECT * FROM Livros;""")
 
     for linha in cursor.fetchall():
-        print(linha)
+        nome = linha[0]
+        autor = linha[1]
+        ano = linha[2]
+        genero = linha[3]
+        print("----------------------------")
+        print(nome)
+        print(autor)
+        print(ano)
+        print(genero)
+        print("----------------------------")
     database.close()
 print("Livros listados")

@@ -3,7 +3,7 @@ import cadastro
 import consulta
 
 def exibir_menu():
-    print("##################################")
+    print("\n##################################")
     print("BEM VINDO(A) A BIBLIOTECA DIGITAL!")
     print("##################################\n")
     print("1. Adicionar um livro.")
@@ -23,7 +23,7 @@ def main():
         if opcao == "1":
             cadastro.adicionar(biblioteca)
         elif opcao == "2":
-            cadastro.excluir()
+            cadastro.excluir(biblioteca)
         elif opcao == "3":
             cadastro.atualizar()
         elif opcao == "4":
