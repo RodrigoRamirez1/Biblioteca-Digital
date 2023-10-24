@@ -29,7 +29,7 @@ def main():
         elif opcao == "4":
             consulta.bucar()
         elif opcao == "5":
-            consulta.listar()
+            consulta.listar(biblioteca)
         elif opcao == "6":
             break
         else:

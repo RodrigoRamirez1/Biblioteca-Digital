@@ -10,6 +10,8 @@ def adicionar(database):
     print("\nLIVRO CADASTRADO COM SUCESSO! \n")
 
 def excluir():
+
+    
     print("Livro excluido")
 
 
