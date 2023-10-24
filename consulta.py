@@ -19,4 +19,3 @@ def listar(database):
         print(genero)
         print("----------------------------")
     database.close()
-print("Livros listados")
