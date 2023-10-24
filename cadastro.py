@@ -7,9 +7,11 @@ def adicionar(database):
     genero = input(f"\nDigite o Gênero do livro '{nome}': \n").upper()
     
     cursor = database.cursor()
-    cursor.execute("INSERT INTO Livros VALUES ('"+nome+"', '"+autor+"', "+str(ano)+", '"+genero+"')")
+    cursor.execute("INSERT INTO Livros (nome, autor, ano, genero) VALUES ('"+nome+"', '"+autor+"', "+str(ano)+", '"+genero+"')")
     database.commit()
     print("\n>> LIVRO CADASTRADO COM SUCESSO! <<\n")
+
+
 
 def excluir(database):
     try:
@@ -24,5 +26,30 @@ def excluir(database):
         print(f"\n>> ERRO AO EXCLUIR: {erro} <<\n")
 
 
-def atualizar():
-    print("Livro atualizado")
+
+
+def atualizar(database):
+    identificador = input("Digite o ID do Livro a ser atualizado: ")
+    campos = ('nome', 'autor', 'ano', 'genero')
+    valores = ()
+
+    print("Preencha os campos que você quer atualizar, (Deixe vazio caso não queria alterar)")
+
+    for campo in campos:
+        valores += (input(campo + ':').upper(),)
+
+    sql = "UPDATE Livros SET "
+
+    for indice, campo in enumerate(campos):
+        if valores[indice] != '':
+            sql += campo + "= '" + valores[indice] + "',"
+
+    sql = sql [0:len(sql)-1]
+    sql += " WHERE id = " + identificador
+
+    print(sql)
+
+    cursor = database.cursor()
+    cursor.execute(sql)
+    database.commit()
+    print("\n>> LIVROS ATUALIZADOS <<\n")
