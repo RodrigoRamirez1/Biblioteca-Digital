@@ -18,4 +18,3 @@ def listar(database):
         print(ano)
         print(genero)
         print("----------------------------")
-    database.close()
