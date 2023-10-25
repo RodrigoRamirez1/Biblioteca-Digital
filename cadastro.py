@@ -29,11 +29,13 @@ def excluir(database):
 
 
 def atualizar(database):
-    identificador = input("Digite o ID do Livro a ser atualizado: ")
+    identificador = input("\nDigite o ID do Livro a ser atualizado: \n")
     campos = ('nome', 'autor', 'ano', 'genero')
     valores = ()
 
-    print("Preencha os campos que você quer atualizar, (Deixe vazio caso não queria alterar)")
+    print("---------------------------------------------------------------------------------")
+    print("Preencha os campos que você quer atualizar, (Deixe vazio caso não queira alterar)!")
+    print("---------------------------------------------------------------------------------")
 
     for campo in campos:
         valores += (input(campo + ':').upper(),)
